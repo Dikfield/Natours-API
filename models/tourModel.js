@@ -177,13 +177,13 @@ tourSchema.post(/^find/, function (docs, next) {
   next();
 });
 
-//Aggregation Middleware
-tourSchema.pre('aggregate', function (next) {
-  this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
+// //Aggregation Middleware
+// tourSchema.pre('aggregate', function (next) {
+//   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
 
-  console.log(this.pipeline());
-  next();
-});
+//   console.log(this.pipeline());
+//   next();
+// });
 mongoose.set('strictQuery', true);
 const Tour = mongoose.model('Tour', tourSchema);
 
